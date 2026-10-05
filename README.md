@@ -1,79 +1,189 @@
-# mis-skills
+# 🧰 mis-skills
 
-Mis skills de Claude Code, empaquetadas como plugin + marketplace.
+Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
+Se instala con dos comandos y trae **19 skills** de diseño frontend, calidad de código, testing, escritura y más.
 
-## Instalar
+> Repo privado. Para usarlo hay que ser colaborador y tener Git autenticado en GitHub (ver [Problemas frecuentes](#-problemas-frecuentes)).
 
-En Claude Code:
+---
+
+## 🚀 Instalación (2 minutos)
+
+**Requisitos:** Claude Code y Git instalados, con tu cuenta de GitHub ya logueada en Git.
+
+**1. Añade el marketplace** (solo una vez). Dentro de Claude Code:
 
 ```
 /plugin marketplace add yery27/mis-skills
+```
+
+**2. Instala el plugin:**
+
+```
 /plugin install mis-skills@mis-skills
 ```
 
-El repo es privado: hace falta ser colaborador y tener Git autenticado en GitHub.
+**3. Recarga y comprueba:**
 
-## Skills incluidas
+```
+/reload-plugins
+```
 
-Todas son de terceros (licencias MIT / Apache-2.0, copiadas dentro de cada carpeta
-junto a un `ORIGEN.md` con la URL y el commit de origen).
+Abre `/plugin` → pestaña **Installed** y debe aparecer `mis-skills`. Las skills quedan disponibles con el prefijo `mis-skills:` (por ejemplo `mis-skills:humanizer`).
 
-| Skill | Para qué sirve | Origen |
-|-------|----------------|--------|
-| `frontend-design` | Obliga a Claude a elegir una dirección visual concreta (8 "anclas" estéticas) y a mantener paleta, tipografía y texturas bloqueadas en variables CSS, sin inventar un gris nuevo a mitad de proyecto. Además prohíbe datos inventados y textos de relleno. | [Ilm-Alan/frontend-design](https://github.com/Ilm-Alan/frontend-design) |
-| `tailwind-theme-builder` | Monta Tailwind v4 + shadcn/ui con tema y modo oscuro: variables CSS con `@theme inline`, theme provider y verificación. Útil también para migrar de v3 a v4 y arreglar colores que no cargan. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
-| `design-review` | Auditoría visual de una web o página: layout, tipografía, espaciado, color, jerarquía y responsive. Genera informe con capturas. No es una auditoría de usabilidad. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
-| `color-palette` | Genera una paleta completa y accesible a partir de un único color de marca: escala 50-950, tokens semánticos, variantes dark, CSS de Tailwind v4 y comprobación de contraste WCAG. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
-| `shadcn-ui` | Guía experta de shadcn/ui: instalar y personalizar componentes, variables CSS del tema, variantes con `cva`, mezcla de clases con `twMerge` y `clsx`. Incluye ejemplos, guías y un script de verificación. | [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) |
-| `make-interfaces-feel-better` | Principios de ingeniería de diseño para pulir interfaces: animaciones de entrada/salida, hovers, sombras, bordes, tipografía, iconos y micro-interacciones. Úsala cuando algo "se siente raro" en la UI. | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) |
-| `ponytail` | Modo "senior perezoso": fuerza la solución más simple y corta que funciona (YAGNI, librería estándar antes que dependencias, nada de abstracciones no pedidas). | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `ponytail-review` | Revisión de código centrada solo en sobreingeniería: qué borrar o sustituir, una línea por hallazgo. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `ponytail-audit` | Auditoría de todo el repo en busca de sobreingeniería: lista priorizada de qué borrar o simplificar. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `ponytail-debt` | Recoge los comentarios `ponytail:` del código en un registro de deuda, para no dejar atajos olvidados. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `ponytail-gain` | Muestra el impacto medido de ponytail: menos código, menos coste, más velocidad. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `ponytail-help` | Tarjeta de referencia con los modos y comandos de ponytail. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
-| `humanizer` | Reescribe texto que suena a IA para que suene a quien lo escribe, sin cambiar lo que dice: quita contrastes "no es X sino Y", cierres de una línea, tríos forzados, guiones por todas partes, lenguaje de venta y relleno. Basada en la guía "Signs of AI writing" de Wikipedia. | [blader/humanizer](https://github.com/blader/humanizer) |
+> ⚠️ Si ya tienes ponytail u otra de estas skills instalada por otro lado, desinstálala antes (`/plugin` → Installed), o saldrán duplicadas.
 
-Ponytail se activa solo: `hooks/hooks.json` inyecta `skills/ponytail/SKILL.md` al
-iniciar cada sesión (arranque, reanudar, `/clear` y compactar). Es una versión mínima y
-sin dependencias de los hooks del plugin original, que necesitan Node.js. No incluye
-el cambio de nivel por comando, la barra de estado ni la propagación a subagentes.
-Para desactivarlo en una sesión: "stop ponytail".
+### Cómo se usan
 
-## Para buscar más skills
+No hay que llamarlas a mano: Claude las activa solo cuando lo que pides encaja con su descripción.
+Ejemplos: *"revisa el diseño de esta página"*, *"depura este fallo"*, *"humaniza este texto"*.
+También puedes invocarlas por nombre: `/mis-skills:design-review`.
 
-Listas curadas por la comunidad (no son skills, solo catálogos):
+### Actualizar
 
-- [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)
-- [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills)
-
-## Actualizar
+Cuando se añadan skills nuevas o cambien las existentes:
 
 ```
 /plugin marketplace update mis-skills
 ```
 
-## Añadir una skill nueva
+---
 
-1. `cp -r plantilla skills/<nombre>` y editar `skills/<nombre>/SKILL.md`
-   (el `name` del frontmatter debe coincidir con el nombre de la carpeta).
-2. `git add -A && git commit -m "Añadir skill <nombre>" && git push`
-3. Quien la quiera ejecuta el comando de actualizar.
+## 📚 Catálogo
 
-No hay versión en `plugin.json` a propósito: cada commit nuevo cuenta como
-actualización, sin tener que subir números de versión a mano.
+### 🎨 Diseño frontend
 
-## Estructura
+| Skill | Para qué sirve |
+|-------|----------------|
+| `frontend-design` | Fija una dirección visual concreta (8 "anclas" estéticas) con paleta, tipografía y texturas bloqueadas en variables CSS. Prohíbe datos inventados y textos de relleno. |
+| `make-interfaces-feel-better` | Pule la interfaz: animaciones de entrada/salida, hovers, sombras, bordes, tipografía, iconos y micro-interacciones. Úsala cuando algo "se siente raro". |
+| `tailwind-theme-builder` | Monta Tailwind v4 + shadcn/ui con tema y modo oscuro (`@theme inline`). Sirve también para migrar de v3 a v4 y arreglar colores que no cargan. |
+| `shadcn-ui` | Guía de shadcn/ui: instalar y personalizar componentes, variables del tema, variantes con `cva`, `twMerge` y `clsx`. Incluye ejemplos y script de verificación. |
+| `color-palette` | Paleta accesible completa a partir de un solo color de marca: escala 50-950, tokens semánticos, modo oscuro, CSS de Tailwind v4 y contraste WCAG. |
+| `theme-factory` | 10 temas prediseñados (colores y fuentes) para aplicar a presentaciones, documentos o páginas, o para generar uno a medida. |
+| `design-review` | Auditoría visual de una página: layout, tipografía, espaciado, color, jerarquía y responsive. Genera informe con capturas. |
+
+### 🐛 Calidad de código y desarrollo
+
+| Skill | Para qué sirve |
+|-------|----------------|
+| `systematic-debugging` | Depuración con método: encontrar la causa raíz antes de proponer arreglos, en vez de probar parches al azar. |
+| `test-driven-development` | Flujo test primero: escribir el test que falla, implementar lo mínimo, refactorizar. |
+| `verification-before-completion` | Antes de decir "listo" o "arreglado", obliga a ejecutar las comprobaciones y confirmar la salida. |
+| `ponytail` | Modo "senior perezoso": la solución más simple y corta que funciona. **Se activa solo** al iniciar cada sesión (ver [nota](#-ponytail-se-activa-solo)). |
+| `ponytail-review` | Revisión de código solo para sobreingeniería: qué borrar o sustituir, una línea por hallazgo. |
+| `ponytail-audit` | Auditoría de todo el repo en busca de sobreingeniería, con lista priorizada. |
+| `ponytail-debt` | Recoge los comentarios `ponytail:` en un registro de deuda técnica. |
+| `ponytail-gain` | Muestra el impacto medido de ponytail (menos código, menos coste). |
+| `ponytail-help` | Tarjeta de referencia de ponytail. |
+
+### 🧪 Testing y herramientas
+
+| Skill | Para qué sirve | Necesita |
+|-------|----------------|----------|
+| `webapp-testing` | Prueba apps web locales con Playwright: verificar la UI, depurar, sacar capturas y leer logs del navegador. | Python + `pip install playwright` |
+| `mcp-builder` | Guía para crear servidores MCP de calidad (Python o Node/TypeScript), con evaluaciones. | Python o Node |
+
+### ✍️ Escritura
+
+| Skill | Para qué sirve |
+|-------|----------------|
+| `humanizer` | Reescribe texto que suena a IA para que suene a quien lo escribe, sin cambiar lo que dice. Quita contrastes "no es X sino Y", tríos forzados, exceso de guiones y lenguaje de venta. |
+
+#### 🦄 Ponytail se activa solo
+
+`hooks/hooks.json` inyecta `skills/ponytail/SKILL.md` al iniciar cada sesión (arranque, reanudar, `/clear` y compactar).
+Es una versión mínima **sin dependencias** de los hooks del plugin original, que necesitan Node.js.
+No incluye cambio de nivel por comando, barra de estado ni propagación a subagentes.
+Para apagarlo en una sesión, escribe: `stop ponytail`.
+
+---
+
+## ➕ Añadir una skill nueva
+
+Una carpeta por skill dentro de `skills/`. Desde la raíz del repo clonado:
+
+**Skill propia**
+
+```bash
+cp -r plantilla skills/mi-skill          # copia la plantilla
+# edita skills/mi-skill/SKILL.md (el "name" debe coincidir con el nombre de la carpeta)
+```
+
+**Skill de terceros** (de GitHub)
+
+1. Clona el repo de origen en una carpeta temporal y **lee el `SKILL.md` y los scripts** antes de copiar nada: una skill son instrucciones que Claude seguirá, y los scripts se ejecutan en tu máquina.
+2. Comprueba la licencia (debe permitir redistribuir).
+3. Copia la carpeta a `skills/<nombre>/` junto con su `LICENSE`.
+4. Crea `skills/<nombre>/ORIGEN.md` con la URL, el commit y la licencia (mira cualquiera de las existentes).
+
+**En ambos casos**, para terminar:
+
+5. Añade una fila a la tabla de este README.
+6. Publica:
+
+```bash
+git add -A
+git commit -m "Añadir skill <nombre>"
+git push
+```
+
+7. Quien la quiera ejecuta `/plugin marketplace update mis-skills`.
+
+> No hay `version` en `plugin.json` a propósito: cada commit nuevo cuenta como actualización, sin subir números a mano.
+
+### Actualizar una skill de terceros
+
+Vuelve a descargar su repo de origen (la URL está en su `ORIGEN.md`), revisa los cambios, reemplaza la carpeta, actualiza el commit en `ORIGEN.md` y haz push.
+
+---
+
+## 🗂️ Estructura
 
 ```
-.claude-plugin/   plugin.json y marketplace.json
-hooks/            hooks del plugin (activa ponytail al iniciar sesión)
-skills/           una carpeta por skill (lo que se instala)
-plantilla/        plantilla para skills nuevas (no se instala)
+mis-skills/
+├── .claude-plugin/
+│   ├── plugin.json         ← define el plugin
+│   └── marketplace.json    ← catálogo (lo que se añade con /plugin marketplace add)
+├── hooks/hooks.json        ← activa ponytail al iniciar sesión
+├── skills/                 ← una carpeta por skill (lo que se instala)
+│   └── <nombre>/
+│       ├── SKILL.md        ← instrucciones de la skill
+│       ├── LICENSE         ← licencia de origen
+│       └── ORIGEN.md       ← de dónde viene, commit y licencia
+├── plantilla/SKILL.md      ← plantilla para skills nuevas (no se instala)
+└── README.md
 ```
 
-## Skills de terceros
+---
 
-Cada skill copiada lleva su `LICENSE` y un `ORIGEN.md`. Para actualizar una:
-volver a descargar su repo de origen y reemplazar la carpeta. Si añades una
-de terceros, repite ese patrón y suma una fila a la tabla de arriba.
+## 🩹 Problemas frecuentes
+
+| Síntoma | Causa y solución |
+|---------|------------------|
+| `Repository not found` al añadir el marketplace o al hacer push | El repo es privado y tu Git usa otra cuenta o no tiene sesión. Entra en el Administrador de credenciales de Windows → Credenciales de Windows, borra la entrada `git:https://github.com` y repite: se abrirá el login en el navegador. Para otra persona, además, tiene que estar invitada en Settings → Collaborators. |
+| Las skills salen duplicadas | Hay otra copia instalada (por ejemplo el plugin original de ponytail). Desinstálala en `/plugin` → Installed. |
+| No aparecen las skills nuevas | Ejecuta `/plugin marketplace update mis-skills` y luego `/reload-plugins`. |
+| `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
+
+---
+
+## 🙏 Créditos y licencias
+
+Todas las skills son de terceros, copiadas con su licencia (MIT o Apache-2.0) y un `ORIGEN.md` en cada carpeta.
+Los derechos son de sus autores:
+
+| Autor / repo | Skills |
+|--------------|--------|
+| [Ilm-Alan/frontend-design](https://github.com/Ilm-Alan/frontend-design) | `frontend-design` |
+| [jezweb/claude-skills](https://github.com/jezweb/claude-skills) | `tailwind-theme-builder`, `design-review`, `color-palette` |
+| [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) | `shadcn-ui` |
+| [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) | `make-interfaces-feel-better` |
+| [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) | `ponytail`, `ponytail-review`, `ponytail-audit`, `ponytail-debt`, `ponytail-gain`, `ponytail-help` |
+| [blader/humanizer](https://github.com/blader/humanizer) | `humanizer` |
+| [anthropics/skills](https://github.com/anthropics/skills) | `webapp-testing`, `mcp-builder`, `theme-factory` |
+| [obra/superpowers](https://github.com/obra/superpowers) | `systematic-debugging`, `test-driven-development`, `verification-before-completion` |
+
+**Para descubrir más skills:** listas curadas por la comunidad en
+[ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) y
+[travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills).
