@@ -32,6 +32,7 @@ junto a un `ORIGEN.md` con la URL y el commit de origen).
 | `ponytail-debt` | Recoge los comentarios `ponytail:` del código en un registro de deuda, para no dejar atajos olvidados. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
 | `ponytail-gain` | Muestra el impacto medido de ponytail: menos código, menos coste, más velocidad. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
 | `ponytail-help` | Tarjeta de referencia con los modos y comandos de ponytail. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
+| `humanizer` | Reescribe texto que suena a IA para que suene a quien lo escribe, sin cambiar lo que dice: quita contrastes "no es X sino Y", cierres de una línea, tríos forzados, guiones por todas partes, lenguaje de venta y relleno. Basada en la guía "Signs of AI writing" de Wikipedia. | [blader/humanizer](https://github.com/blader/humanizer) |
 
 Ponytail se activa solo: `hooks/hooks.json` inyecta `skills/ponytail/SKILL.md` al
 iniciar cada sesión (arranque, reanudar, `/clear` y compactar). Es una versión mínima y
