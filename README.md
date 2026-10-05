@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **19 skills** de diseño frontend, calidad de código, testing, escritura y más.
+Se instala con dos comandos y trae **20 skills** de diseño frontend, calidad de código, testing, escritura y más.
 
 > Repo privado. Para usarlo hay que ser colaborador y tener Git autenticado en GitHub (ver [Problemas frecuentes](#-problemas-frecuentes)).
 
@@ -89,6 +89,7 @@ Cuando se añadan skills nuevas o cambien las existentes:
 | Skill | Para qué sirve |
 |-------|----------------|
 | `humanizer` | Reescribe texto que suena a IA para que suene a quien lo escribe, sin cambiar lo que dice. Quita contrastes "no es X sino Y", tríos forzados, exceso de guiones y lenguaje de venta. |
+| `caveman` | Modo de respuestas ultra-cortas: va directo a la respuesta, sin relleno y conservando todos los datos técnicos. Ahorra tokens. Se activa con `/caveman` o "caveman mode" y sigue hasta "stop caveman". |
 
 #### 🦄 Ponytail se activa solo
 
@@ -181,6 +182,7 @@ Los derechos son de sus autores:
 | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) | `make-interfaces-feel-better` |
 | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) | `ponytail`, `ponytail-review`, `ponytail-audit`, `ponytail-debt`, `ponytail-gain`, `ponytail-help` |
 | [blader/humanizer](https://github.com/blader/humanizer) | `humanizer` |
+| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | `caveman` |
 | [anthropics/skills](https://github.com/anthropics/skills) | `webapp-testing`, `mcp-builder`, `theme-factory` |
 | [obra/superpowers](https://github.com/obra/superpowers) | `systematic-debugging`, `test-driven-development`, `verification-before-completion` |
 
