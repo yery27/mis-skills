@@ -1,20 +1,13 @@
 {
   "name": "mis-skills",
-  "owner": { "name": "yery27" },
+  "owner": {
+    "name": "yery27"
+  },
   "plugins": [
     {
       "name": "mis-skills",
       "source": "./",
       "description": "Mis skills personales para Claude Code"
-    },
-    {
-      "name": "ponytail",
-      "source": {
-        "source": "github",
-        "repo": "dietrichgebert/ponytail",
-        "sha": "bd582c92232e96cb929a896366419e1f7c8c77b9"
-      },
-      "description": "Modo 'senior perezoso': la solución más simple y corta que funciona"
     }
   ]
 }
