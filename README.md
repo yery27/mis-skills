@@ -13,6 +13,26 @@ En Claude Code:
 
 El repo es privado: hace falta ser colaborador y tener Git autenticado en GitHub.
 
+## Skills incluidas
+
+Todas son de terceros (licencias MIT / Apache-2.0, copiadas dentro de cada carpeta
+junto a un `ORIGEN.md` con la URL y el commit de origen).
+
+| Skill | Para qué sirve | Origen |
+|-------|----------------|--------|
+| `frontend-design` | Obliga a Claude a elegir una dirección visual concreta (8 "anclas" estéticas) y a mantener paleta, tipografía y texturas bloqueadas en variables CSS, sin inventar un gris nuevo a mitad de proyecto. Además prohíbe datos inventados y textos de relleno. | [Ilm-Alan/frontend-design](https://github.com/Ilm-Alan/frontend-design) |
+| `tailwind-theme-builder` | Monta Tailwind v4 + shadcn/ui con tema y modo oscuro: variables CSS con `@theme inline`, theme provider y verificación. Útil también para migrar de v3 a v4 y arreglar colores que no cargan. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
+| `design-review` | Auditoría visual de una web o página: layout, tipografía, espaciado, color, jerarquía y responsive. Genera informe con capturas. No es una auditoría de usabilidad. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
+| `color-palette` | Genera una paleta completa y accesible a partir de un único color de marca: escala 50-950, tokens semánticos, variantes dark, CSS de Tailwind v4 y comprobación de contraste WCAG. | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
+| `shadcn-ui` | Guía experta de shadcn/ui: instalar y personalizar componentes, variables CSS del tema, variantes con `cva`, mezcla de clases con `twMerge` y `clsx`. Incluye ejemplos, guías y un script de verificación. | [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) |
+
+## Para buscar más skills
+
+Listas curadas por la comunidad (no son skills, solo catálogos):
+
+- [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)
+- [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills)
+
 ## Actualizar
 
 ```
@@ -36,3 +56,9 @@ actualización, sin tener que subir números de versión a mano.
 skills/           una carpeta por skill (lo que se instala)
 plantilla/        plantilla para skills nuevas (no se instala)
 ```
+
+## Skills de terceros
+
+Cada skill copiada lleva su `LICENSE` y un `ORIGEN.md`. Para actualizar una:
+volver a descargar su repo de origen y reemplazar la carpeta. Si añades una
+de terceros, repite ese patrón y suma una fila a la tabla de arriba.
