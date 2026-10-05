@@ -1,0 +1,11 @@
+{
+  "name": "mis-skills",
+  "owner": { "name": "yery27" },
+  "plugins": [
+    {
+      "name": "mis-skills",
+      "source": "./",
+      "description": "Mis skills personales para Claude Code"
+    }
+  ]
+}

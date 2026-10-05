@@ -1,21 +1,38 @@
 # mis-skills
 
-Mis skills de Claude Code. Cada skill vive en `skills/<nombre>/SKILL.md`.
+Mis skills de Claude Code, empaquetadas como plugin + marketplace.
 
-## Usar en un proyecto
+## Instalar
 
-Copiar:
+En Claude Code:
 
-```bash
-git clone https://github.com/<usuario>/mis-skills.git
-mkdir -p .claude/skills && cp -r mis-skills/skills/* .claude/skills/
+```
+/plugin marketplace add yery27/mis-skills
+/plugin install mis-skills@mis-skills
 ```
 
-Enlazar a nivel de usuario (Windows, PowerShell):
+El repo es privado: hace falta ser colaborador y tener Git autenticado en GitHub.
 
-```powershell
-git clone https://github.com/<usuario>/mis-skills.git $HOME\mis-skills
-New-Item -ItemType Junction -Path $HOME\.claude\skills -Target $HOME\mis-skills\skills
+## Actualizar
+
+```
+/plugin marketplace update mis-skills
 ```
 
-En macOS/Linux: `ln -s ~/mis-skills/skills ~/.claude/skills`.
+## Añadir una skill nueva
+
+1. `cp -r plantilla skills/<nombre>` y editar `skills/<nombre>/SKILL.md`
+   (el `name` del frontmatter debe coincidir con el nombre de la carpeta).
+2. `git add -A && git commit -m "Añadir skill <nombre>" && git push`
+3. Quien la quiera ejecuta el comando de actualizar.
+
+No hay versión en `plugin.json` a propósito: cada commit nuevo cuenta como
+actualización, sin tener que subir números de versión a mano.
+
+## Estructura
+
+```
+.claude-plugin/   plugin.json y marketplace.json
+skills/           una carpeta por skill (lo que se instala)
+plantilla/        plantilla para skills nuevas (no se instala)
+```
