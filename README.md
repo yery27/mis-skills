@@ -33,7 +33,11 @@ junto a un `ORIGEN.md` con la URL y el commit de origen).
 | `ponytail-gain` | Muestra el impacto medido de ponytail: menos código, menos coste, más velocidad. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
 | `ponytail-help` | Tarjeta de referencia con los modos y comandos de ponytail. | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
 
-Nota: de ponytail solo están las skills, sin los hooks ni comandos del plugin original (no se activa solo al abrir sesión; se dispara por frase o por nombre).
+Ponytail se activa solo: `hooks/hooks.json` inyecta `skills/ponytail/SKILL.md` al
+iniciar cada sesión (arranque, reanudar, `/clear` y compactar). Es una versión mínima y
+sin dependencias de los hooks del plugin original, que necesitan Node.js. No incluye
+el cambio de nivel por comando, la barra de estado ni la propagación a subagentes.
+Para desactivarlo en una sesión: "stop ponytail".
 
 ## Para buscar más skills
 
@@ -62,6 +66,7 @@ actualización, sin tener que subir números de versión a mano.
 
 ```
 .claude-plugin/   plugin.json y marketplace.json
+hooks/            hooks del plugin (activa ponytail al iniciar sesión)
 skills/           una carpeta por skill (lo que se instala)
 plantilla/        plantilla para skills nuevas (no se instala)
 ```
