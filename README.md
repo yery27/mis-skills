@@ -3,7 +3,7 @@
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
 Se instala con dos comandos y trae **20 skills** de diseño frontend, calidad de código, testing, escritura y más.
 
-> Repo privado. Para usarlo hay que ser colaborador y tener Git autenticado en GitHub (ver [Problemas frecuentes](#-problemas-frecuentes)).
+> Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
 ---
 
@@ -162,7 +162,7 @@ mis-skills/
 
 | Síntoma | Causa y solución |
 |---------|------------------|
-| `Repository not found` al añadir el marketplace o al hacer push | El repo es privado y tu Git usa otra cuenta o no tiene sesión. Entra en el Administrador de credenciales de Windows → Credenciales de Windows, borra la entrada `git:https://github.com` y repite: se abrirá el login en el navegador. Para otra persona, además, tiene que estar invitada en Settings → Collaborators. |
+| `Repository not found` al añadir el marketplace o al hacer push | Comprueba que escribiste bien `yery27/mis-skills`. Si falla al hacer push, tu Git usa otra cuenta o no tiene sesión: entra en el Administrador de credenciales de Windows → Credenciales de Windows, borra la entrada `git:https://github.com` y repite. |
 | Las skills salen duplicadas | Hay otra copia instalada (por ejemplo el plugin original de ponytail). Desinstálala en `/plugin` → Installed. |
 | No aparecen las skills nuevas | Ejecuta `/plugin marketplace update mis-skills` y luego `/reload-plugins`. |
 | `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
@@ -171,6 +171,7 @@ mis-skills/
 
 ## 🙏 Créditos y licencias
 
+El resto del repo (README, plantilla, hooks) es MIT, ver `LICENSE`.
 Todas las skills son de terceros, copiadas con su licencia (MIT o Apache-2.0) y un `ORIGEN.md` en cada carpeta.
 Los derechos son de sus autores:
 
