@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **20 skills** de diseño frontend, calidad de código, testing, escritura y más.
+Se instala con dos comandos y trae **21 skills** de diseño frontend, calidad de código, testing, escritura y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -83,6 +83,7 @@ Cuando se añadan skills nuevas o cambien las existentes:
 |-------|----------------|----------|
 | `webapp-testing` | Prueba apps web locales con Playwright: verificar la UI, depurar, sacar capturas y leer logs del navegador. | Python + `pip install playwright` |
 | `mcp-builder` | Guía para crear servidores MCP de calidad (Python o Node/TypeScript), con evaluaciones. | Python o Node |
+| `find-skills` | Ayuda a descubrir e instalar skills del ecosistema abierto (`npx skills find` / `add`) cuando preguntas "¿hay una skill para X?". | Node (`npx`) |
 
 ### ✍️ Escritura
 
@@ -166,6 +167,7 @@ mis-skills/
 | Las skills salen duplicadas | Hay otra copia instalada (por ejemplo el plugin original de ponytail). Desinstálala en `/plugin` → Installed. |
 | No aparecen las skills nuevas | Ejecuta `/plugin marketplace update mis-skills` y luego `/reload-plugins`. |
 | `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
+| `find-skills` no encuentra o no instala nada | Necesita Node.js (usa `npx skills`). Instálalo desde nodejs.org. |
 
 ---
 
@@ -186,6 +188,7 @@ Los derechos son de sus autores:
 | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | `caveman` |
 | [anthropics/skills](https://github.com/anthropics/skills) | `webapp-testing`, `mcp-builder`, `theme-factory` |
 | [obra/superpowers](https://github.com/obra/superpowers) | `systematic-debugging`, `test-driven-development`, `verification-before-completion` |
+| [vercel-labs/skills](https://github.com/vercel-labs/skills) | `find-skills` |
 
 **Para descubrir más skills:** listas curadas por la comunidad en
 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) y
