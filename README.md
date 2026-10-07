@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **21 skills** de diseño frontend, calidad de código, testing, escritura y más.
+Se instala con dos comandos y trae **30 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -83,7 +83,23 @@ Cuando se añadan skills nuevas o cambien las existentes:
 |-------|----------------|----------|
 | `webapp-testing` | Prueba apps web locales con Playwright: verificar la UI, depurar, sacar capturas y leer logs del navegador. | Python + `pip install playwright` |
 | `mcp-builder` | Guía para crear servidores MCP de calidad (Python o Node/TypeScript), con evaluaciones. | Python o Node |
+| `e2e-testing-patterns` | Guía para montar suites de tests end-to-end fiables y rápidas con Playwright o Cypress: page objects, fixtures, tests flaky, CI/CD, multi-navegador y accesibilidad. | Playwright o Cypress en tu proyecto |
 | `find-skills` | Ayuda a descubrir e instalar skills del ecosistema abierto (`npx skills find` / `add`) cuando preguntas "¿hay una skill para X?". | Node (`npx`) |
+
+### 🛡️ Ciberseguridad (defensiva)
+
+Skills de análisis, detección, respuesta y cumplimiento. Los scripts son Python 3 y usan la librería estándar; `requests`, `dnspython` y `pyyaml` son opcionales. Úsalas solo sobre sistemas propios o con autorización (`recon-osint` incluye técnicas activas).
+
+| Skill | Para qué sirve |
+|-------|----------------|
+| `recon-osint` | Reconocimiento pasivo y activo para evaluaciones autorizadas: enumeración de subdominios, análisis DNS, fingerprint de tecnologías y correlación OSINT. |
+| `threat-hunting` | Caza de amenazas: extracción de IOCs, correlación con inteligencia, mapeo a MITRE ATT&CK, hipótesis de caza y reglas de detección. |
+| `incident-response` | Respuesta a incidentes con NIST SP 800-61 y SANS PICERL: playbooks, recogida de evidencias, línea de tiempo forense e informe posterior. |
+| `log-analysis` | Análisis de logs de seguridad: parseo, detección de anomalías, consultas SIEM y reglas Sigma para Splunk, Elastic, QRadar y Sentinel. |
+| `blue-team-defense` | Defensa: hardening de sistemas, ingeniería de detección, líneas base, gestión de parches y arquitectura en profundidad. |
+| `grc-compliance` | Gobierno, riesgo y cumplimiento: evaluación de riesgos, mapeo de controles NIST CSF / ISO 27001 / SOC 2 / CIS, análisis de brechas y políticas. |
+| `supply-chain-security` | Cadena de suministro de software: SBOM, detección de typosquatting y dependency confusion, paquetes maliciosos, CI/CD y firmado (SLSA, Sigstore). |
+| `threat-intelligence` | Inteligencia de amenazas (CTI): ciclo de inteligencia, normalización de IOCs, STIX/TAXII y MISP, modelos Diamond y Kill Chain, informes. |
 
 ### ✍️ Escritura
 
@@ -167,6 +183,7 @@ mis-skills/
 | Las skills salen duplicadas | Hay otra copia instalada (por ejemplo el plugin original de ponytail). Desinstálala en `/plugin` → Installed. |
 | No aparecen las skills nuevas | Ejecuta `/plugin marketplace update mis-skills` y luego `/reload-plugins`. |
 | `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
+| Un script de ciberseguridad falla por un módulo que falta | Los scripts funcionan con la librería estándar; para las funciones opcionales instala `pip install requests dnspython pyyaml`. |
 | `find-skills` no encuentra o no instala nada | Necesita Node.js (usa `npx skills`). Instálalo desde nodejs.org. |
 
 ---
@@ -174,7 +191,7 @@ mis-skills/
 ## 🙏 Créditos y licencias
 
 El resto del repo (README, plantilla, hooks) es MIT, ver `LICENSE`.
-Todas las skills son de terceros, copiadas con su licencia (MIT o Apache-2.0) y un `ORIGEN.md` en cada carpeta.
+Todas las skills son de terceros, copiadas con su licencia (MIT, Apache-2.0 o CC BY 4.0) y un `ORIGEN.md` en cada carpeta.
 Los derechos son de sus autores:
 
 | Autor / repo | Skills |
@@ -189,6 +206,8 @@ Los derechos son de sus autores:
 | [anthropics/skills](https://github.com/anthropics/skills) | `webapp-testing`, `mcp-builder`, `theme-factory` |
 | [obra/superpowers](https://github.com/obra/superpowers) | `systematic-debugging`, `test-driven-development`, `verification-before-completion` |
 | [vercel-labs/skills](https://github.com/vercel-labs/skills) | `find-skills` |
+| [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `e2e-testing-patterns` (MIT + CC BY 4.0) |
+| [Masriyan/Claude-Code-CyberSecurity-Skill](https://github.com/Masriyan/Claude-Code-CyberSecurity-Skill) | `recon-osint`, `threat-hunting`, `incident-response`, `log-analysis`, `blue-team-defense`, `grc-compliance`, `supply-chain-security`, `threat-intelligence` (de sus 22 skills solo se incluyen estas, de perfil defensivo) |
 
 **Para descubrir más skills:** listas curadas por la comunidad en
 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) y
