@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **30 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura y más.
+Se instala con dos comandos y trae **31 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -56,6 +56,7 @@ Cuando se añadan skills nuevas o cambien las existentes:
 | Skill | Para qué sirve |
 |-------|----------------|
 | `frontend-design` | Fija una dirección visual concreta (8 "anclas" estéticas) con paleta, tipografía y texturas bloqueadas en variables CSS. Prohíbe datos inventados y textos de relleno. |
+| `design-taste-frontend` | La skill `taste-skill`: frontend "anti-slop" para landing pages, portfolios y rediseños. Lee el briefing, elige una dirección de diseño y evita interfaces con aspecto de plantilla. No es para dashboards ni tablas de datos. |
 | `make-interfaces-feel-better` | Pule la interfaz: animaciones de entrada/salida, hovers, sombras, bordes, tipografía, iconos y micro-interacciones. Úsala cuando algo "se siente raro". |
 | `tailwind-theme-builder` | Monta Tailwind v4 + shadcn/ui con tema y modo oscuro (`@theme inline`). Sirve también para migrar de v3 a v4 y arreglar colores que no cargan. |
 | `shadcn-ui` | Guía de shadcn/ui: instalar y personalizar componentes, variables del tema, variantes con `cva`, `twMerge` y `clsx`. Incluye ejemplos y script de verificación. |
@@ -205,6 +206,7 @@ Los derechos son de sus autores:
 | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | `caveman` |
 | [anthropics/skills](https://github.com/anthropics/skills) | `webapp-testing`, `mcp-builder`, `theme-factory` |
 | [obra/superpowers](https://github.com/obra/superpowers) | `systematic-debugging`, `test-driven-development`, `verification-before-completion` |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `design-taste-frontend` (solo la skill principal; el repo tiene 12 variantes más) |
 | [vercel-labs/skills](https://github.com/vercel-labs/skills) | `find-skills` |
 | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `e2e-testing-patterns` (MIT + CC BY 4.0) |
 | [Masriyan/Claude-Code-CyberSecurity-Skill](https://github.com/Masriyan/Claude-Code-CyberSecurity-Skill) | `recon-osint`, `threat-hunting`, `incident-response`, `log-analysis`, `blue-team-defense`, `grc-compliance`, `supply-chain-security`, `threat-intelligence` (de sus 22 skills solo se incluyen estas, de perfil defensivo) |
