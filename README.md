@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **31 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura y más.
+Se instala con dos comandos y trae **32 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura, automatización y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -102,6 +102,12 @@ Skills de análisis, detección, respuesta y cumplimiento. Los scripts son Pytho
 | `supply-chain-security` | Cadena de suministro de software: SBOM, detección de typosquatting y dependency confusion, paquetes maliciosos, CI/CD y firmado (SLSA, Sigstore). |
 | `threat-intelligence` | Inteligencia de amenazas (CTI): ciclo de inteligencia, normalización de IOCs, STIX/TAXII y MISP, modelos Diamond y Kill Chain, informes. |
 
+### 🤖 Automatización
+
+| Skill | Para qué sirve | Necesita |
+|-------|----------------|----------|
+| `auto-trello-task` | Skill propia. Ejecuta sola las tarjetas de la lista "🤖 Tareas Automatizadas 🤖" de tus tableros de Trello y deja el resultado en cada tarjeta. Funciona en cualquier tablero, también compartido: por defecto solo ejecuta lo que creaste tú (`incluir-equipo` añade lo de otros miembros) y las acciones irreversibles (enviar, gastar, borrar) las deja para tu OK. Al terminar cada tarjeta comenta qué hizo, si quedó finalizada y cuánto tardó, la marca como hecha y la mueve a "Hecho". Antes de empezar pone en la descripción "EN CURSO — haciéndose por <usuario>" para evitar choques entre compañeros, y lo quita al acabar. Admite `simular` para probar sin escribir nada. | Conector de Trello; para correr en segundo plano, una tarea programada y las herramientas de Trello permitidas |
+
 ### ✍️ Escritura
 
 | Skill | Para qué sirve |
@@ -192,7 +198,7 @@ mis-skills/
 ## 🙏 Créditos y licencias
 
 El resto del repo (README, plantilla, hooks) es MIT, ver `LICENSE`.
-Todas las skills son de terceros, copiadas con su licencia (MIT, Apache-2.0 o CC BY 4.0) y un `ORIGEN.md` en cada carpeta.
+Todas las skills son de terceros, salvo `auto-trello-task` (propia, MIT como el resto del repo), copiadas con su licencia (MIT, Apache-2.0 o CC BY 4.0) y un `ORIGEN.md` en cada carpeta.
 Los derechos son de sus autores:
 
 | Autor / repo | Skills |
