@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **33 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura, automatización y más.
+Se instala con dos comandos y trae **34 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura, automatización y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -115,6 +115,7 @@ Skills de análisis, detección, respuesta y cumplimiento. Los scripts son Pytho
 | `humanizer` | Reescribe texto que suena a IA para que suene a quien lo escribe, sin cambiar lo que dice. Quita contrastes "no es X sino Y", tríos forzados, exceso de guiones y lenguaje de venta. |
 | `caveman` | Modo de respuestas ultra-cortas: va directo a la respuesta, sin relleno y conservando todos los datos técnicos. Ahorra tokens. Se activa con `/caveman` o "caveman mode" y sigue hasta "stop caveman". |
 | `documentar` | Skill propia para documentar prácticas del ciclo (ASIX) a partir del `.docx` del alumno: borra los enunciados y deja títulos, tablas y preguntas, documenta captura por captura en catalán con `humanizer`, responde las preguntas, añade portada con logo e índice con enlaces y entrega `.docx` y PDF. Se lanza con `/documentar` adjuntando el `.docx`, el enunciado y, opcionalmente, un PDF de estilo. |
+| `document-practica` | Skill propia que hace desde cero el Word de una práctica de cualquier asignatura a partir del enunciado: portada con esquema, índice automático, introducción, ejercicios con enunciado, cuadros de captura y explicación justificada, parte extra y conclusión. Pregunta paso a paso lo que falte (alumno, curso, asignatura...), marca en amarillo lo supuesto y recuerda tus datos y preferencias de formato. Se lanza pegando el enunciado o con `/document-practica`. |
 
 #### 🦄 Ponytail se activa solo
 
@@ -193,6 +194,7 @@ mis-skills/
 | `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
 | Un script de ciberseguridad falla por un módulo que falta | Los scripts funcionan con la librería estándar; para las funciones opcionales instala `pip install requests dnspython pyyaml`. |
 | `find-skills` no encuentra o no instala nada | Necesita Node.js (usa `npx skills`). Instálalo desde nodejs.org. |
+| `document-practica` no genera el documento | El paso final (`finalitzar.ps1`) es para Windows: necesita PowerShell, Microsoft Word, Node.js (instala solo la librería `docx` con npm) y Python con `pip install pymupdf` (portada y hojas de revisión). La letra es Lexend; si no está instalada, Word la sustituye. |
 | `documentar` no genera el PDF o no valida el `.docx` | Usa la skill `docx` de Anthropic (scripts `validate.py` y `soffice.py`), LibreOffice y Poppler (`pdftoppm`, `pdftotext`), además de Python con `Pillow` y `pypdf`. En claude.ai ya vienen; en local instálalos o usa la skill desde claude.ai. |
 
 ---
@@ -200,7 +202,7 @@ mis-skills/
 ## 🙏 Créditos y licencias
 
 El resto del repo (README, plantilla, hooks) es MIT, ver `LICENSE`.
-Todas las skills son de terceros, salvo `auto-trello-task` y `documentar` (propias, MIT como el resto del repo), copiadas con su licencia (MIT, Apache-2.0 o CC BY 4.0) y un `ORIGEN.md` en cada carpeta.
+Todas las skills son de terceros, salvo `auto-trello-task`, `documentar` y `document-practica` (propias, MIT como el resto del repo), copiadas con su licencia (MIT, Apache-2.0 o CC BY 4.0) y un `ORIGEN.md` en cada carpeta.
 Los derechos son de sus autores:
 
 | Autor / repo | Skills |
