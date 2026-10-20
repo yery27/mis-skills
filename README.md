@@ -1,7 +1,7 @@
 # 🧰 mis-skills
 
 Mi colección de skills para [Claude Code](https://claude.com/claude-code), empaquetada como **plugin + marketplace**.
-Se instala con dos comandos y trae **34 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura, automatización y más.
+Se instala con dos comandos y trae **45 skills** de diseño frontend, calidad de código, testing, ciberseguridad defensiva, escritura, automatización y más.
 
 > Repo público: cualquiera puede añadirlo como marketplace. Las skills son de terceros con sus licencias (ver [Créditos y licencias](#-créditos-y-licencias)).
 
@@ -108,6 +108,24 @@ Skills de análisis, detección, respuesta y cumplimiento. Los scripts son Pytho
 |-------|----------------|----------|
 | `auto-trello-task` | Skill propia y universal (vale para cualquier agente de IA). Ejecuta sola las tarjetas de la lista "🤖 Tareas Automatizadas 🤖" de tus tableros de Trello y deja el resultado en cada tarjeta. Funciona en cualquier tablero, también compartido: por defecto solo ejecuta lo que creaste tú (`incluir-equipo` añade lo de otros miembros) y las acciones irreversibles (enviar, gastar, borrar) las deja para tu OK. Al terminar cada tarjeta comenta qué hizo, si quedó finalizada y cuánto tardó, la marca como hecha y la mueve a "Hecho". Antes de empezar pone en la descripción "EN CURSO — haciéndose por <usuario>" para evitar choques entre compañeros, y lo quita al acabar. Admite `simular` para probar sin escribir nada. | Conector de Trello o API REST (`TRELLO_KEY` y `TRELLO_TOKEN`); para correr en segundo plano, una tarea programada y permisos de escritura |
 
+### 🧬 Clonar apps (pack Replica)
+
+Pack de 11 skills que se ejecutan en orden (`recon → architect → design → build → backend → test → diff → entrepreneur → brand → launch → deploy`) y comparten la carpeta `replica/` del proyecto. Reconstruyen funciones y flujos al estilo clean-room, nunca el código, logos ni textos del original.
+
+| Skill | Para qué sirve |
+|-------|----------------|
+| `replica-recon` | Ingeniería inversa de una app a partir de páginas públicas y tu propia cuenta: pantallas, flujos, componentes, modelo de datos y matriz de funciones. |
+| `replica-architect` | Planifica el stack, el esquema de base de datos y la API del clon. |
+| `replica-design` | Reconstruye el sistema de diseño (colores, tipografía, espaciado, componentes) como tokens, con comprobador de contraste WCAG. |
+| `replica-build` | Reconstruye la app pantalla a pantalla desde el mapa de recon, con todos sus estados. |
+| `replica-backend` | Autenticación, base de datos, pagos con Stripe, email e integraciones por APIs oficiales, con lista de seguridad. |
+| `replica-test` | Plan de pruebas desde los flujos, tests end-to-end con Playwright e informes de bugs con severidad. |
+| `replica-diff` | Compara el clon con el original: puntuación de paridad de funciones y diferencia de layout entre capturas. |
+| `replica-entrepreneur` | Lee reseñas públicas reales (con enlace) de lo que los usuarios odian del original y lo convierte en mejoras y un ángulo de posicionamiento. |
+| `replica-brand` | Nombre, paleta, logo y voz propios, y un barrido que busca restos del original en el código. |
+| `replica-launch` | Landing, precios y ficha de App Store / Google Play revisada contra sus límites y reglas anticopia. |
+| `replica-deploy` | Preflight y puesta en producción en tu dominio (hosting, DNS, Stripe en vivo, monitorización). |
+
 ### ✍️ Escritura
 
 | Skill | Para qué sirve |
@@ -193,6 +211,7 @@ mis-skills/
 | No aparecen las skills nuevas | Ejecuta `/plugin marketplace update mis-skills` y luego `/reload-plugins`. |
 | `webapp-testing` falla | Instala Playwright: `pip install playwright` y `playwright install`. |
 | Un script de ciberseguridad falla por un módulo que falta | Los scripts funcionan con la librería estándar; para las funciones opcionales instala `pip install requests dnspython pyyaml`. |
+| Un script `replica-*` falla | Necesitan Python 3.8+ (solo librería estándar, nada que instalar). `replica-test` además usa Playwright en tu proyecto: `npm i -D @playwright/test` y `npx playwright install chromium`. |
 | `find-skills` no encuentra o no instala nada | Necesita Node.js (usa `npx skills`). Instálalo desde nodejs.org. |
 | `document-practica` no genera el documento | El paso final (`finalitzar.ps1`) es para Windows: necesita PowerShell, Microsoft Word, Node.js (instala solo la librería `docx` con npm) y Python con `pip install pymupdf` (portada y hojas de revisión). La letra es Lexend; si no está instalada, Word la sustituye. |
 | `documentar` no genera el PDF o no valida el `.docx` | Usa la skill `docx` de Anthropic (scripts `validate.py` y `soffice.py`), LibreOffice y Poppler (`pdftoppm`, `pdftotext`), además de Python con `Pillow` y `pypdf`. En claude.ai ya vienen; en local instálalos o usa la skill desde claude.ai. |
@@ -219,6 +238,7 @@ Los derechos son de sus autores:
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `design-taste-frontend` (solo la skill principal; el repo tiene 12 variantes más) |
 | [vercel-labs/skills](https://github.com/vercel-labs/skills) | `find-skills` |
 | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | `e2e-testing-patterns` (MIT + CC BY 4.0) |
+| [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) | `replica-recon`, `replica-architect`, `replica-design`, `replica-build`, `replica-backend`, `replica-test`, `replica-diff`, `replica-entrepreneur`, `replica-brand`, `replica-launch`, `replica-deploy` |
 | [Masriyan/Claude-Code-CyberSecurity-Skill](https://github.com/Masriyan/Claude-Code-CyberSecurity-Skill) | `recon-osint`, `threat-hunting`, `incident-response`, `log-analysis`, `blue-team-defense`, `grc-compliance`, `supply-chain-security`, `threat-intelligence` (de sus 22 skills solo se incluyen estas, de perfil defensivo) |
 
 **Para descubrir más skills:** listas curadas por la comunidad en
