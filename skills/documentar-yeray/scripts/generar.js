@@ -53,6 +53,29 @@ const CODI = (linies) => linies.map((l, i) => new Paragraph({
   children: runs(l || " ", { font: "Consolas", size: 19 }),
 }));
 
+// Quadre "PER FER": comandes i passos per copiar i enganxar. És una taula d'una cel·la blava, perquè
+// es vegi diferent de la resta i es pugui esborrar sencer abans d'entregar.
+const FER_BLAU = "1F4E9C";
+const FER = (linies) => {
+  const v = { style: BorderStyle.SINGLE, size: 12, color: FER_BLAU };
+  return [
+    new Table({
+      width: { size: W, type: WidthType.DXA }, columnWidths: [W],
+      rows: [new TableRow({ cantSplit: true, children: [new TableCell({
+        width: { size: W, type: WidthType.DXA },
+        borders: { top: v, bottom: v, left: v, right: v },
+        shading: { type: ShadingType.CLEAR, color: "auto", fill: "DDEBF7" },
+        margins: { top: 100, bottom: 100, left: 160, right: 160 },
+        children: [
+          new Paragraph({ keepNext: true, spacing: { after: 80 }, children: [new TextRun({ text: "PER FER (copia-ho i esborra aquest quadre)", bold: true, size: 16, color: FER_BLAU })] }),
+          ...linies.map((l) => new Paragraph({ spacing: { after: 20 }, children: runs(l || " ", { font: "Consolas", size: 19 }) })),
+        ],
+      })] })],
+    }),
+    new Paragraph({ spacing: { after: 120 }, children: [] }),
+  ];
+};
+
 const vora = { style: BorderStyle.SINGLE, size: 6, color: "7F7F7F" };
 const vores = { top: vora, bottom: vora, left: vora, right: vora };
 // Una fila de quadres de captura (1 o més columnes) amb vora, com a les pràctiques entregades.
@@ -95,9 +118,10 @@ for (let i = 0; i < linies.length; i++) {
   const l = raw.trim();
   if (l.startsWith("```")) {
     buidaPara();
+    const fer = /^```fer/i.test(l);
     const bloc = [];
     for (i++; i < linies.length && !linies[i].trim().startsWith("```"); i++) bloc.push(linies[i].replace(/\s+$/, ""));
-    cos.push(...CODI(bloc));
+    cos.push(...(fer ? FER(bloc) : CODI(bloc)));
     continue;
   }
   if (!l) { buidaPara(); continue; }

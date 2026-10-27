@@ -109,6 +109,22 @@ Com han de ser les explicacions:
 - Paràgrafs curts, sense farciment.
 - Posa `---` entre exercicis llargs perquè cada un comenci en pàgina nova.
 
+### Quadres "PER FER"
+Abans de l'explicació de cada pas, posa les **comandes o accions que l'Yeray ha de fer** en un quadre ```fer (blau, amb l'etiqueta "PER FER"). Així les veu a l'instant, les copia i enganxa a la màquina, i després esborra el quadre sencer abans d'entregar.
+- Dins, una comanda per línia (o un pas curt, si no és una comanda). Res d'explicacions llargues: això va a l'explicació, fora del quadre.
+- Només el que cal **fer**. Els blocs normals de codi (```) són per a ordres que formen part de l'explicació i es queden al document.
+- Un quadre per pas o exercici, abans de les captures.
+
+### Regles per assignatura
+**Administració de sistemes Operatius: secció ERRORS.** Entre la part extra i `# CONCLUSIÓ` afegeix `# ERRORS`.
+- **Els errors els dona l'Yeray.** No te n'inventis mai. Al pas B de l'inici guiat, si l'assignatura és aquesta, pregunta-li en un missatge curt quins errors li han sortit (missatge, on i com el va arreglar) i espera. Si diu que cap, no posis la secció.
+- Cada error és un `## Error N. Títol curt` amb aquest ordre fix:
+  1. **Missatge de l'error**: el text exacte, en bloc de codi, i una fila `[captura: ...]` perquè hi enganxi la captura.
+  2. **Causa**: per què va passar, en primera persona i passat.
+  3. **Solució**: què vaig fer, amb les ordres en bloc de codi (no `fer`: formen part del document).
+  4. **Comprovació**: com vaig verificar que quedava resolt (ordre, resultat que es veu) i una fila de captura.
+- Etiqueta en negreta cada part (`**Causa:**`, etc.) i justifica-ho tot com la resta del document.
+
 ## 4. Portada
 Estil fix: **títol = nom de l'assignatura**, la **imatge de l'assignatura** a tota l'amplada i, a baix a la dreta, en petit i sense negreta: alumne, any i curs. Després de la portada va l'índex, i després de l'índex, el nom de la pràctica.
 
@@ -147,6 +163,7 @@ Envia el .docx amb SendUserFile i explica en poques línies:
 - què hi ha al document (i quina part extra has triat i per què);
 - la **llista de supòsits en groc**;
 - què ha de fer l'usuari:
+  - esborrar els quadres blaus "PER FER" quan hagi acabat;
   - enganxar les captures;
   - actualitzar l'índex (clic dret → *Actualizar campos* → *Actualizar toda la tabla*);
   - comprovar que el text coincideix amb les seves captures.

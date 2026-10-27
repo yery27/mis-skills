@@ -12,6 +12,7 @@
 | `[captura: A \| B]` | Fila de dos quadres (màxim recomanat: 2) |
 | `- text` | Vinyeta |
 | ```` ``` ```` … ```` ``` ```` | Bloc d'ordres (Consolas, fons gris). Cada línia del bloc és una línia del document |
+| ```` ```fer ```` … ```` ``` ```` | Quadre blau **"PER FER"** amb les comandes o passos que ha de fer l'usuari. Pensat per copiar-ho i esborrar-lo tot (és una taula d'una sola cel·la). No és el mateix que un bloc d'ordres normal, que és part de l'explicació |
 | `---` (fora del front matter) | Salt de pàgina |
 | Línies de text seguides | Un paràgraf justificat. Una línia en blanc separa dos paràgrafs |
 | `<!-- ... -->` | Comentari que no surt al document |
@@ -52,3 +53,26 @@ La portada es compon així: l'assignatura com a títol centrat, la imatge a tota
 - Les barres invertides s'escriuen tal qual (`C:\Carpeta`, `DOMINI\usuari`).
 - Dins d'una línia `[captura: ...]`, el caràcter `|` separa columnes. No el facis servir dins del text de la captura.
 - Vinyeta amb títol: `- **Títol:** text`.
+
+## Secció ERRORS (Administració de sistemes Operatius)
+```
+# ERRORS
+
+## Error 1. El servei no arrenca
+
+**Missatge de l'error:**
+
+```
+Job for apache2.service failed. See "systemctl status apache2.service"
+```
+
+[captura: Error]
+
+**Causa:** ...
+
+**Solució:** ...
+
+**Comprovació:** ...
+
+[captura: Servei en marxa]
+```
