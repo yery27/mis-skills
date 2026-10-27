@@ -12,7 +12,7 @@
 | `[captura: A \| B]` | Fila de dos quadres (màxim recomanat: 2) |
 | `- text` | Vinyeta |
 | ```` ``` ```` … ```` ``` ```` | Bloc d'ordres (Consolas, fons gris). Cada línia del bloc és una línia del document |
-| ```` ```fer ```` … ```` ``` ```` | Quadre blau **"PER FER"** amb les comandes o passos que ha de fer l'usuari. Pensat per copiar-ho i esborrar-lo tot (és una taula d'una sola cel·la). No és el mateix que un bloc d'ordres normal, que és part de l'explicació |
+| ```` ```fer ```` … ```` ``` ```` | Quadre blau **"PER FER"** amb les comandes o passos que ha de fer l'usuari. Pensat per copiar-ho i esborrar-lo tot (és una taula d'una sola cel·la). La línia `@ ...` (opcional, la primera) diu on es fa i surt com a "On: ..." en negreta. No és el mateix que un bloc d'ordres normal, que és part de l'explicació |
 | `---` (fora del front matter) | Salt de pàgina |
 | Línies de text seguides | Un paràgraf justificat. Una línia en blanc separa dos paràgrafs |
 | `<!-- ... -->` | Comentari que no surt al document |

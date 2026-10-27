@@ -8,3 +8,4 @@ Correccions de forma i estil de l'Yeray. Una línia per preferència. Manen per 
 - Captures en taules amb vora i l'explicació a sota.
 - Les comandes i passos per fer-los jo van en un quadre blau "PER FER" (```fer), fàcil de copiar i d'esborrar.
 - Administració de sistemes Operatius: secció ERRORS abans de la conclusió, amb els errors que doni jo (missatge, causa, solució, comprovació).
+- Els passos dels quadres PER FER han de ser exactes i funcionar tal qual, i dir on es fan (sistema, màquina, terminal).

@@ -57,6 +57,9 @@ const CODI = (linies) => linies.map((l, i) => new Paragraph({
 // es vegi diferent de la resta i es pugui esborrar sencer abans d'entregar.
 const FER_BLAU = "1F4E9C";
 const FER = (linies) => {
+  // Una línia que comença per "@" diu ON es fa (màquina, sistema, terminal): surt en negreta i no es copia amb les ordres.
+  const on = linies.filter((l) => l.startsWith("@")).map((l) => l.replace(/^@[ 	]*/, ""));
+  linies = linies.filter((l) => !l.startsWith("@"));
   const v = { style: BorderStyle.SINGLE, size: 12, color: FER_BLAU };
   return [
     new Table({
@@ -68,6 +71,7 @@ const FER = (linies) => {
         margins: { top: 100, bottom: 100, left: 160, right: 160 },
         children: [
           new Paragraph({ keepNext: true, spacing: { after: 80 }, children: [new TextRun({ text: "PER FER (copia-ho i esborra aquest quadre)", bold: true, size: 16, color: FER_BLAU })] }),
+          ...on.map((t) => new Paragraph({ keepNext: true, spacing: { after: 60 }, children: runs("On: " + t, { bold: true, size: 20 }) })),
           ...linies.map((l) => new Paragraph({ spacing: { after: 20 }, children: runs(l || " ", { font: "Consolas", size: 19 }) })),
         ],
       })] })],

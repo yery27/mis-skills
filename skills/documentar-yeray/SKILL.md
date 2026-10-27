@@ -114,6 +114,13 @@ Abans de l'explicació de cada pas, posa les **comandes o accions que l'Yeray ha
 - Dins, una comanda per línia (o un pas curt, si no és una comanda). Res d'explicacions llargues: això va a l'explicació, fora del quadre.
 - Només el que cal **fer**. Els blocs normals de codi (```) són per a ordres que formen part de l'explicació i es queden al document.
 - Un quadre per pas o exercici, abans de les captures.
+- **Han de funcionar tal com estan escrits.** Això és el més important del quadre:
+  - Ordres reals, completes i en l'ordre exacte, amb els noms, rutes, IP, interfícies i usuaris **de la pràctica** (de l'enunciat o de l'Yeray). Res de `<posa-aqui-la-ip>` ni d'"adapta-ho": si falta una dada, **pregunta-la abans d'escriure el quadre**.
+  - La primera línia diu **on es fa**, amb `@`: `@ Windows Server 2022 · Màquina 1 (DC) · PowerShell com a administrador`. Surt en negreta com a "On:" i no es barreja amb les ordres. Si el pas passa a una altra màquina, nou quadre.
+  - Indica el sistema i la versió quan l'ordre depèn d'ells (apt/dnf, `ip`/`ifconfig`, PowerShell/cmd, `sudo` o no).
+  - Si un pas necessita un requisit (un paquet, un servei en marxa, haver fet l'anterior), el quadre anterior ho ha de deixar fet.
+  - No t'inventis ordres, paràmetres ni noms de menú. Si no estàs segur d'una ordre, verifica-la a la documentació oficial o digues-ho: més val avisar que donar una ordre que falla.
+  - Quan hi hagi un resultat que ha de sortir, afegeix-lo en una línia de comentari (`# ha de mostrar: ...`) perquè sàpiga si ha anat bé.
 
 ### Regles per assignatura
 **Administració de sistemes Operatius: secció ERRORS.** Entre la part extra i `# CONCLUSIÓ` afegeix `# ERRORS`.
