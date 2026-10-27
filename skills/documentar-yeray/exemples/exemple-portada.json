@@ -1,0 +1,12 @@
+{
+  "amplada": 520,
+  "alcada": 400,
+  "nodes": [
+    {"id": "dom", "x": 170, "y": 20, "w": 180, "titol": "empresa.local", "sub": "Domini (SRV01)", "etiqueta": "Default Domain Policy"},
+    {"id": "dc", "x": 20, "y": 160, "titol": "Domain Controllers", "sub": "UO del sistema", "etiqueta": "Default Domain Controllers Policy"},
+    {"id": "of", "x": 320, "y": 160, "titol": "UO Oficines", "sub": "ofi1, ofi2, ofi3, ofi4", "etiqueta": "GPO Oficines"},
+    {"id": "tg", "x": 320, "y": 290, "titol": "UO Seu Tarragona", "sub": "UO filla d'Oficines", "etiqueta": "GPO Tarragona"},
+    {"id": "cl", "x": 40, "y": 300, "w": 150, "titol": "Windows 11", "sub": "client del domini"}
+  ],
+  "connexions": [["dom", "dc"], ["dom", "of"], ["of", "tg"], ["cl", "tg"]]
+}

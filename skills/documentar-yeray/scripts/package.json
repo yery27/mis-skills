@@ -1,0 +1,8 @@
+{
+  "name": "document-practica-scripts",
+  "private": true,
+  "description": "Generador de documents de practiques (markdown -> docx)",
+  "dependencies": {
+    "docx": "^9.5.0"
+  }
+}
