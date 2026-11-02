@@ -13,3 +13,4 @@ Correccions de forma i estil de l'Yeray. Una línia per preferència. Manen per 
 - Normalment treballo amb VirtualBox.
 - Tot el text de la pràctica passa per la skill humanizer.
 - No modificar les VMs (ni snapshots ni maquinari). Excepció: puc canviar la xarxa si alguna cosa no funciona, apuntant el valor antic i documentant-ho a ERRORS.
+- Si durant la pràctica em falta informació, es pregunta (no se suposa).
