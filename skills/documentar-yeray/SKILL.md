@@ -13,6 +13,7 @@ Fitxers de la skill (camins relatius a aquesta carpeta):
 - `referencia/format.md` — la sintaxi del `practica.md` que llegeix el generador.
 - `exemples/exemple.md` + `exemples/exemple-portada.json` — una pràctica completa (GPO de Windows Server). **Serveix només per veure la forma i el nivell de detall esperat**: el to, com es justifica cada pas i quantes captures es posen. No en reutilitzis el contingut.
 - `preferencies.md` — correccions de **format** que ha anat fent l'usuari. Les llegeixes sempre i manen per sobre d'aquest fitxer.
+- `referencia/mode-autonom.md` — com fer la pràctica jo mateix amb VirtualBox, fent captures i registrant els errors. Només si l'Yeray tria "La fa Claude".
 - `portades.md` — quina imatge de portada va a cada assignatura (les imatges són a `portades/`).
 - `ultimes-dades.md` — l'alumne, el curs i l'assignatura de l'última vegada, que es proposen (mai s'apliquen sense confirmar) a l'inici guiat.
 - `scripts/` — `generar.js` (md → docx), `finalitzar.ps1` (Word + PDF + còpia a Descàrregues), `fulls.py` (fulls de revisió).
@@ -63,6 +64,14 @@ Si un camp **obligatori** no té almenys 2 candidats per fer-ne opcions (per exe
 
 **No t'inventis mai** el nom d'una persona.
 
+**Pas B2 — Qui fa la pràctica (sempre, abans de començar res):**
+Quan ja tens l'enunciat, pregunta-ho **sempre**, encara que l'Yeray ja ho hagi donat tot. Si hi ha altres preguntes pendents (pas B), posa-la a la mateixa crida d'AskUserQuestion, **com a primera pregunta**:
+- *"Qui fa la pràctica?"*
+  - **La fa l'Yeray** — ell la fa i jo la documento (flux de sempre: captures seves o quadres per enganxar-hi, i quadres "PER FER" amb els passos exactes).
+  - **La fa Claude** — jo la faig als seus ordinadors i màquines virtuals, faig les captures i ho vaig registrant al document. Segueix **`referencia/mode-autonom.md`**.
+
+No comencis a fer res (ni a obrir VMs ni a escriure el document) fins que ho hagi contestat.
+
 **Pas C — Amb totes les dades:**
 1. Confirma-les en una línia, per exemple: "Faig la *Pràctica 2.3 - Configuració d'un servidor DHCP* per a Maria Puig Soler (M07, 2n SMX)".
 2. Continua amb el pas 2 sense esperar resposta.
@@ -98,6 +107,8 @@ Escriu-lo a la carpeta temporal de la sessió (scratchpad), dins de `practica-<n
 4. La part extra, si n'hi ha.
 5. `# CONCLUSIÓ` — què s'ha après i per què és útil.
 
+**Humanizer a tot el document.** Abans d'escriure res, carrega la skill `humanizer` i aplica-la a **tot el text** de la pràctica: introducció, explicacions, errors, part extra i conclusió (en els dos modes). Sense guions llargs (—), sense vocabulari típic d'IA, sense contrastos "no és X sinó Y", sense grups de tres forçats ni to de venda, i amb frases naturals. Mantén-hi la primera persona i el passat. Rellegeix el `practica.md` sencer amb aquest filtre **abans de generar**. El humanizer no toca les ordres, els missatges d'error ni les rutes: es copien tal qual.
+
 Com han de ser les explicacions:
 - En **primera persona i en passat**: "He obert…, he configurat…, he comprovat que…".
 - **Justifica-ho tot.** Cada pas ha de dir:
@@ -110,6 +121,8 @@ Com han de ser les explicacions:
 - Posa `---` entre exercicis llargs perquè cada un comenci en pàgina nova.
 
 ### Quadres "PER FER"
+(Només si la pràctica la fa l'Yeray. En mode autònom no es fan servir: les ordres que han funcionat van en blocs de codi normals.)
+
 Abans de l'explicació de cada pas, posa les **comandes o accions que l'Yeray ha de fer** en un quadre ```fer (blau, amb l'etiqueta "PER FER"). Així les veu a l'instant, les copia i enganxa a la màquina, i després esborra el quadre sencer abans d'entregar.
 - Dins, una comanda per línia (o un pas curt, si no és una comanda). Res d'explicacions llargues: això va a l'explicació, fora del quadre.
 - Només el que cal **fer**. Els blocs normals de codi (```) són per a ordres que formen part de l'explicació i es queden al document.
@@ -124,7 +137,7 @@ Abans de l'explicació de cada pas, posa les **comandes o accions que l'Yeray ha
 
 ### Regles per assignatura
 **Administració de sistemes Operatius: secció ERRORS.** Entre la part extra i `# CONCLUSIÓ` afegeix `# ERRORS`.
-- **Els errors els dona l'Yeray.** No te n'inventis mai. Al pas B de l'inici guiat, si l'assignatura és aquesta, pregunta-li en un missatge curt quins errors li han sortit (missatge, on i com el va arreglar) i espera. Si diu que cap, no posis la secció.
+- **Si la fa l'Yeray, els errors els dona ell.** No te n'inventis mai. **Si la faig jo (mode autònom), tots els errors que surtin, també els arreglats, hi van**, en qualsevol assignatura, amb captura real. Al pas B de l'inici guiat, si l'assignatura és aquesta, pregunta-li en un missatge curt quins errors li han sortit (missatge, on i com el va arreglar) i espera. Si diu que cap, no posis la secció.
 - Cada error és un `## Error N. Títol curt` amb aquest ordre fix:
   1. **Missatge de l'error**: el text exacte, en bloc de codi, i una fila `[captura: ...]` perquè hi enganxi la captura.
   2. **Causa**: per què va passar, en primera persona i passat.

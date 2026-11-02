@@ -95,16 +95,32 @@ function CAPTURES(fila) {
       rows: [new TableRow({
         cantSplit: true,
         height: { value: n === 1 ? 3600 : 3000, rule: HeightRule.ATLEAST },
-        children: fila.map((txt, i) => new TableCell({
-          borders: vores,
-          width: { size: widths[i], type: WidthType.DXA },
-          verticalAlign: VerticalAlign.CENTER,
-          margins: { top: 100, bottom: 100, left: 140, right: 140 },
-          children: [new Paragraph({
-            alignment: AlignmentType.CENTER,
-            children: [new TextRun({ text: `[ Captura: ${txt} ]`, color: "8C8C8C", italics: true, size: 18 })],
-          })],
-        })),
+        children: fila.map((txt, i) => {
+          // "Etiqueta @ fitxer.png": captura real (camí relatiu al .md). Sense "@": quadre buit per enganxar-hi la captura.
+          const [etiqueta, fitxer] = txt.split(/ +@ +/);
+          let fill = null;
+          if (fitxer) {
+            const f = path.resolve(path.dirname(MD), fitxer.trim());
+            if (fs.existsSync(f)) {
+              const buf = fs.readFileSync(f);
+              const { tipus, w, h } = midaImatge(buf);
+              let ww = Math.round(widths[i] / 15) - 24, hh = Math.round(ww * h / w);
+              if (hh > 430) { hh = 430; ww = Math.round(430 * w / h); }
+              fill = new ImageRun({ type: tipus, data: buf, transformation: { width: ww, height: hh },
+                altText: { title: "Captura", description: net(etiqueta), name: path.basename(f) } });
+            } else console.error(`AVÍS: no trobo la captura ${f}`);
+          }
+          return new TableCell({
+            borders: vores,
+            width: { size: widths[i], type: WidthType.DXA },
+            verticalAlign: VerticalAlign.CENTER,
+            margins: { top: 100, bottom: 100, left: 140, right: 140 },
+            children: [new Paragraph({
+              alignment: AlignmentType.CENTER,
+              children: [fill || new TextRun({ text: `[ Captura: ${etiqueta} ]`, color: "8C8C8C", italics: true, size: 18 })],
+            })],
+          });
+        }),
       })],
     }),
     new Paragraph({ keepNext: true, spacing: { after: 120 }, children: [] }),

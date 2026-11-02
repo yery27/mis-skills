@@ -9,6 +9,7 @@
 | `## Exercici N. Títol` | Títol 2, que surt a l'índex |
 | `> text` | Enunciat en negreta. No queda mai separat del que el segueix |
 | `[captura: A]` | Un quadre de captura a amplada completa |
+| `[captura: A @ captures/x.png]` | Quadre amb la **captura real** (camí relatiu al `.md`; PNG o JPG). Es pot combinar: `[captura: A @ a.png \| B @ b.png]` |
 | `[captura: A \| B]` | Fila de dos quadres (màxim recomanat: 2) |
 | `- text` | Vinyeta |
 | ```` ``` ```` … ```` ``` ```` | Bloc d'ordres (Consolas, fons gris). Cada línia del bloc és una línia del document |
