@@ -12,3 +12,4 @@ Correccions de forma i estil de l'Yeray. Una línia per preferència. Manen per 
 - Abans de començar una pràctica, preguntar sempre si la fa Claude (al meu ordinador, amb VirtualBox) o la faig jo.
 - Normalment treballo amb VirtualBox.
 - Tot el text de la pràctica passa per la skill humanizer.
+- No modificar mai les VMs (ni snapshots ni configuració): només mirar, engegar, captures, teclat i ordres dins del guest.

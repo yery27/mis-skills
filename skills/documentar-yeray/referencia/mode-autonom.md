@@ -8,14 +8,15 @@ Només quan l'Yeray ha triat **"La fas tu"** a l'inici. Jo faig la pràctica de 
 - **Insisteix fins que funcioni, per difícil que sigui.** Davant d'un problema: llegeix el missatge exacte, mira logs, busca a la documentació oficial, prova alternatives i comprova el resultat. No et rendeixis al primer error. Si després de **tres camins diferents** continua bloquejat, para: explica a l'Yeray què has provat i què creus que passa, i pregunta. No simulis que ha anat bé.
 - **Només el laboratori de l'Yeray.** Les seves VMs i el que demana l'enunciat. Mai sistemes de tercers, ni escanejar la xarxa real.
 - **Contrasenyes: mai les escric jo.** L'Yeray inicia sessió a les VMs (o ja les té obertes). Si surt un prompt de contrasenya (sudo, UAC, login), paro i li demano que l'escrigui ell, o li proposo preparar-ho (usuari amb `NOPASSWD`, o un fitxer de contrasenya que crea ell fora del repo i que jo només referencio amb `--passwordfile`). No poso contrasenyes a les ordres ni al document.
-- **Demana OK abans de**: esborrar VMs o snapshots, restaurar un snapshot (es perd l'estat), canviar maquinari o xarxa d'una VM (`modifyvm`), tocar res de l'amfitrió fora del que demani l'enunciat.
+- **No modifiquis les VMs.** Prohibit crear snapshots, restaurar-los, clonar, esborrar, importar/exportar, canviar maquinari o xarxa (`modifyvm`, `storageattach`, `snapshot`, `clonevm`, `unregistervm`...). Només es pot **mirar** (`list`, `showvminfo`), **engegar**, **fer captures**, **escriure amb el teclat** i **executar ordres dins del guest**. Si cal un canvi de configuració de la VM (per exemple, l'adaptador de xarxa), no el facis: digues-li a l'Yeray exactament què ha de canviar i espera.
+- **Demana OK abans de** tocar res de l'amfitrió fora del que demani l'enunciat.
 
 ## Pas 1. Preparació
 
 1. **Eines de control.** Mira què tens: una eina d'ordinador (captura i ratolí) si la sessió en porta, i sempre `VBoxManage` (a `C:/Program Files/Oracle/VirtualBox/VBoxManage.exe`; no és al PATH, crida'l amb el camí complet).
 2. `VBoxManage list vms` i `list runningvms`. Lliga cada màquina de l'enunciat amb una VM. Si en falta una o hi ha dubte, pregunta.
 3. Per a cada VM implicada: xarxes (`showvminfo "<vm>" --machinereadable`, línies `nic`, `bridgeadapter`, `intnet`, `hostonlyadapter`) i si té Guest Additions (`guestproperty get "<vm>" /VirtualBox/GuestAdd/Version`).
-4. **Proposa un snapshot** de cada VM abans de començar (`snapshot "<vm>" take "abans-<practica>"`) per poder tornar enrere. Demana OK.
+4. Avisa a l'Yeray que **no es fan snapshots ni cap canvi a la configuració de les VMs**, així que si alguna cosa surt mal dins del guest, no hi ha punt de retorn automàtic. Si vol un snapshot, el fa ell.
 5. Resum curt a l'Yeray: màquines, ordre de feina, xarxes i què crec que pot donar problemes. Continua sense esperar si no hi ha dubtes.
 
 ## Eines de VirtualBox
@@ -32,8 +33,7 @@ Totes comencen per `VBoxManage` (camí complet). Entre cometes els noms amb espa
 | Ctrl+Alt+Supr | `controlvm "<vm>" keyboardputscancode 1d 38 e0 53 e0 d3 b8 9d` |
 | Executar dins del guest (Guest Additions) | `guestcontrol "<vm>" run --exe <programa> --username <usuari> --passwordfile <fitxer> --wait-stdout --wait-stderr -- <programa> <args>` |
 | Copiar a / des del guest | `guestcontrol "<vm>" copyto` / `copyfrom` |
-| Snapshots | `snapshot "<vm>" take|list|restore "<nom>"` |
-| Aturar | `controlvm "<vm>" acpipowerbutton` (net) o `poweroff` (dur) |
+| Aturar (només si ho demana l'enunciat o l'Yeray) | `controlvm "<vm>" acpipowerbutton` |
 
 Límits: `VBoxManage` **no mou ni clica el ratolí**. Si el pas es fa per interfície gràfica, o utilitzo l'eina d'ordinador sobre la finestra de VirtualBox, o ho faig per terminal, PowerShell o `guestcontrol`. Si no hi ha cap manera, ho dic i demano a l'Yeray que faci aquest clic.
 
@@ -61,7 +61,7 @@ Cada error que surti, **encara que l'arreglis**, va a `# ERRORS` del document (e
 4. Redacta-ho al format de `format.md` (missatge, causa, solució amb ordres que han funcionat, comprovació).
 
 Causes habituals amb VirtualBox, per mirar abans de res:
-- adaptador de xarxa equivocat (NAT no deixa que les VMs es vegin entre elles; per a això, xarxa interna, adaptador només-amfitrió o pont) i IP en una altra xarxa;
+- adaptador de xarxa equivocat (si cal canviar-lo, ho fa l'Yeray: jo no toco la configuració de la VM) (NAT no deixa que les VMs es vegin entre elles; per a això, xarxa interna, adaptador només-amfitrió o pont) i IP en una altra xarxa;
 - MAC o nom de màquina repetits després de clonar;
 - Guest Additions que falten (sense portapapers, sense `guestcontrol`);
 - Hyper-V o virtualització activats que fan anar la VM molt lenta o no deixen engegar-la;
@@ -79,7 +79,7 @@ Causes habituals amb VirtualBox, per mirar abans de res:
 
 ## Al final
 
-Diu a l'Yeray, en poques línies: què s'ha fet, els errors que han sortit, el que no s'ha pogut fer, els snapshots que he creat (i com tornar enrere), i quines VMs han quedat enceses. **No** apago VMs ni esborro snapshots sense preguntar.
+Diu a l'Yeray, en poques línies: què s'ha fet, els errors que han sortit, el que no s'ha pogut fer i quines VMs han quedat enceses. **No** apago les VMs sense preguntar.
 
 ## L'entorn de l'Yeray (comprova-ho, pot canviar)
 
